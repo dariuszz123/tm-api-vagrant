@@ -48,7 +48,7 @@ mv /home/vagrant/composer.phar /usr/bin/composer;
 ln -s /usr/bin/hhvm /usr/bin/php;
 
 # hhvm autostart
-chkconfig --add hhvm
+chkconfig --add hhvm;
 
 # start services
 service hhvm restart;
