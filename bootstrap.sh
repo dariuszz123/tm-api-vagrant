@@ -38,6 +38,15 @@ cp /bootstrap/etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf;
 rm /etc/nginx/nginx.conf;
 cp /bootstrap/etc/nginx/nginx.conf /etc/nginx/nginx.conf;
 
+# composer 
+wget https://getcomposer.org/installer;
+hhvm installer;
+rm installer;
+mv /home/vagrant/composer.phar /usr/bin/composer;
+
+# hhvm php symlink
+ln -s /usr/bin/hhvm /usr/bin/php;
+
 # start services
 service hhvm restart;
 service nginx start;
