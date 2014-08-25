@@ -10,7 +10,7 @@ wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm;
 wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm;
 rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm;
 
-# config with enabled epel
+# config with enabled remi
 rm /etc/yum.repos.d/remi.repo;
 cp /bootstrap/etc/yum.repos.d/remi.repo /etc/yum.repos.d/remi.repo;
 
@@ -50,6 +50,9 @@ mv /home/vagrant/composer.phar /usr/bin/composer;
 
 # hhvm php symlink
 ln -s /usr/bin/hhvm /usr/bin/php;
+
+# hhvm autostart
+chkconfig --add hhvm;
 
 # start services
 service couchdb start;
