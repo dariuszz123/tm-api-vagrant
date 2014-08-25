@@ -15,7 +15,11 @@ rm /etc/yum.repos.d/remi.repo;
 cp /bootstrap/etc/yum.repos.d/remi.repo /etc/yum.repos.d/remi.repo;
 
 # base
-yum -y install nano nginx hhvm;
+yum -y install nano nginx hhvm couchdb;
+
+# autostart
+chkconfig --add hhvm;
+chkconfig --add couchdb;
 
 # hhvm pid
 mkdir /var/run/hhvm;
@@ -48,5 +52,6 @@ mv /home/vagrant/composer.phar /usr/bin/composer;
 ln -s /usr/bin/hhvm /usr/bin/php;
 
 # start services
+service couchdb start;
 service hhvm restart;
 service nginx start;
