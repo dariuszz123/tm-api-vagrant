@@ -46,7 +46,7 @@ cp /bootstrap/etc/nginx/nginx.conf /etc/nginx/nginx.conf;
 wget https://getcomposer.org/installer;
 hhvm installer;
 rm installer;
-mv /home/vagrant/composer.phar /usr/bin/composer;
+mv composer.phar /usr/bin/composer;
 
 # hhvm php symlink
 ln -s /usr/bin/hhvm /usr/bin/php;
